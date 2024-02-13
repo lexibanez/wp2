@@ -5,7 +5,7 @@ def encrypt_message(file1, file2, key):
 
     with open(file1, "r") as file:
         content = str(file.read())
-    
+
     with open(file2, "w") as file:
         cols = key
         rows = math.ceil(len(content) / key)
@@ -20,10 +20,10 @@ def encrypt_message(file1, file2, key):
                     index += 1
 
         transposed = transpose(matrix, [])
-        
+
         for i in range(len(transposed)):
             for j in range(len(transposed[0])):
-                file.write(transposed[i][j].strip())
+                file.write(transposed[i][j])
 
     return file2
 
@@ -49,10 +49,10 @@ def decrypt_message(file1, file2, key):
                     index += 1
 
         transposed = transpose(matrix, [])
-        
+
         for i in range(len(transposed)):
             for j in range(len(transposed[0])):
-                file.write(transposed[i][j].strip())
+                file.write(transposed[i][j])
 
     return file2
 
