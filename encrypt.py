@@ -36,7 +36,6 @@ def decrypt_message(file1, file2, key):
         rows = key
         cols = math.ceil(len(content) / key)
         empty_spaces = rows * cols - len(content)
-        print(empty_spaces)
 
         matrix = [[' ' for _ in range(cols)] for _ in range(rows)]
 
@@ -49,11 +48,11 @@ def decrypt_message(file1, file2, key):
                     matrix[i][j] = content[index]
                     index += 1
 
-        print(matrix)
-
         transposed = transpose(matrix, [])
-
-        print(transposed)
+        
+        for i in range(len(transposed)):
+            for j in range(len(transposed[0])):
+                file.write(transposed[i][j].strip())
 
     return file2
 
